@@ -6,8 +6,11 @@ use NorthernLights\Command\Exception\ReadOnlyObjectException;
 use NorthernLights\Command\Exec;
 use StdClass;
 use ArrayAccess;
+use ArrayIterator;
+use Countable;
+use IteratorAggregate;
 
-class Output implements OutputInterface, ArrayAccess
+class Output implements OutputInterface, ArrayAccess, Countable, IteratorAggregate
 {
     /** @var Exec */
     protected $exec;
@@ -109,5 +112,21 @@ class Output implements OutputInterface, ArrayAccess
     public function offsetUnset($offset)
     {
         throw new ReadOnlyObjectException('Object has read-only access');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function count()
+    {
+        return count($this->output);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getIterator()
+    {
+        return new ArrayIterator($this->output);
     }
 }
