@@ -2,10 +2,12 @@
 
 namespace NorthernLights\Command\Output;
 
+use NorthernLights\Command\Exception\ReadOnlyObjectException;
 use NorthernLights\Command\Exec;
 use StdClass;
+use ArrayAccess;
 
-class Output implements OutputInterface
+class Output implements OutputInterface, ArrayAccess
 {
     /** @var Exec */
     protected $exec;
@@ -71,5 +73,41 @@ class Output implements OutputInterface
     public function asString(string $delimiter = PHP_EOL): string
     {
         return $this->cacheOutputString ?? $this->cacheOutputString = implode($delimiter, $this->output);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function offsetExists($offset)
+    {
+        return isset($this->output[$offset]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function offsetGet($offset)
+    {
+        return $this->output[$offset] ?? null;
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @throws ReadOnlyObjectException
+     */
+    public function offsetSet($offset, $value)
+    {
+        throw new ReadOnlyObjectException('Object has read-only access');
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @throws ReadOnlyObjectException
+     */
+    public function offsetUnset($offset)
+    {
+        throw new ReadOnlyObjectException('Object has read-only access');
     }
 }
