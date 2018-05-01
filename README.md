@@ -34,7 +34,7 @@ if ($result->isOk()) {
     echo "Command failed with status code " . $result->getExitCode() . PHP_EOL;
 }
 ```
-See [Example](src/example.php)
+See [Example](example.php)
 
 Please pay attention to line "use function NorthernLights\Command\Run as command" which is crucial as it assigns function NorthernLights\Command\Run to commmand alias.
 
