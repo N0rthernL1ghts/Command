@@ -70,4 +70,12 @@ class CommandResult implements CommandResultInterface
     {
         return ($this->command->exitCode === 0);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function then(callable $callback)
+    {
+        $callback($this);
+    }
 }

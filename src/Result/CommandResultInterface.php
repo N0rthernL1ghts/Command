@@ -44,4 +44,13 @@ interface CommandResultInterface
      * @return bool
      */
     public function isOk(): bool;
+
+    /**
+     * Callback
+     *
+     * @param callable $callback
+     *
+     * @return mixed
+     */
+    public function then(callable $callback);
 }
