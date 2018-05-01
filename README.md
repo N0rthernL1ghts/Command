@@ -37,7 +37,9 @@ if ($result->isOk()) {
 See [Example](src/example.php)
 
 Please pay attention to line "use function NorthernLights\Command\Run as command" which is crucial as it assigns function NorthernLights\Command\Run to commmand alias.
- 
+
+If you don't want to use this way, see [Run function declaration](src/Run.php)
+
 ## PSR-2 Standard
 Library strives to comply with PSR-2 coding standards, therefore we included following commands:
 ``` bash
