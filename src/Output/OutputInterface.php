@@ -5,36 +5,35 @@ namespace NorthernLights\Command\Output;
 use StdClass;
 
 /**
- * Interface OutputInterface
- * @package NorthernLights\Command\Output
+ * Interface OutputInterface.
  */
 interface OutputInterface
 {
     /**
-     * If instance is used as a string, output string
+     * If instance is used as a string, output string.
      *
      * @return string
      */
     public function __toString(): string;
 
     /**
-     * Get output as array
+     * Get output as array.
      *
      * @return array
      */
     public function asArray(): array;
 
     /**
-     * Get output as JSON
+     * Get output as JSON.
      *
      * @param array $jsonSettings
      *
      * @return string
      */
-    public function asJson(... $jsonSettings): string;
+    public function asJson(...$jsonSettings): string;
 
     /**
-     * Get output as a string
+     * Get output as a string.
      *
      * @param string $delimiter
      *
@@ -43,7 +42,7 @@ interface OutputInterface
     public function asString(string $delimiter = PHP_EOL): string;
 
     /**
-     * Get output as a standard object
+     * Get output as a standard object.
      *
      * @return StdClass
      */
