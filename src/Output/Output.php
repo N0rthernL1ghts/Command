@@ -2,13 +2,13 @@
 
 namespace NorthernLights\Command\Output;
 
-use NorthernLights\Command\Exception\ReadOnlyObjectException;
-use NorthernLights\Command\Exec;
-use StdClass;
 use ArrayAccess;
 use ArrayIterator;
 use Countable;
 use IteratorAggregate;
+use NorthernLights\Command\Exception\ReadOnlyObjectException;
+use NorthernLights\Command\Exec;
+use StdClass;
 
 class Output implements OutputInterface, ArrayAccess, Countable, IteratorAggregate
 {
@@ -34,7 +34,7 @@ class Output implements OutputInterface, ArrayAccess, Countable, IteratorAggrega
      */
     public function __construct(Exec $execInstance)
     {
-        $this->exec   = $execInstance;
+        $this->exec = $execInstance;
         $this->output = $execInstance->output;
     }
 
@@ -67,7 +67,7 @@ class Output implements OutputInterface, ArrayAccess, Countable, IteratorAggrega
      */
     public function asObject(): StdClass
     {
-        return $this->cacheOutputObject ?? $this->cacheOutputObject = (object)$this->output;
+        return $this->cacheOutputObject ?? $this->cacheOutputObject = (object) $this->output;
     }
 
     /**

@@ -7,8 +7,7 @@ use NorthernLights\Command\Output\Output;
 use NorthernLights\Command\Output\OutputInterface;
 
 /**
- * Class CommandResult
- * @package NorthernLights\Command\Result
+ * Class CommandResult.
  */
 class CommandResult implements CommandResultInterface
 {
@@ -25,12 +24,12 @@ class CommandResult implements CommandResultInterface
      */
     public function __construct(Exec $execInstance)
     {
-        $this->command   = $execInstance;
+        $this->command = $execInstance;
         $this->outputIns = new Output($execInstance);
     }
 
     /**
-     * Command output
+     * Command output.
      *
      * @return string
      */
@@ -60,7 +59,7 @@ class CommandResult implements CommandResultInterface
      */
     public function getStatus(): bool
     {
-        return ($this->command->exitCode === 0);
+        return $this->command->exitCode === 0;
     }
 
     /**
@@ -68,7 +67,7 @@ class CommandResult implements CommandResultInterface
      */
     public function isOk(): bool
     {
-        return ($this->command->exitCode === 0);
+        return $this->command->exitCode === 0;
     }
 
     /**
