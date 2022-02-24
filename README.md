@@ -4,6 +4,13 @@ Command
 
 Command is small library providing execution of system commands in OOP way
 
+## Deprecation
+
+I have decided to deprecate this project. If you want to take over and continue maintaining it, welcome contact me.  
+This repository is archived and there will be no further updates.  
+The reason is that [symfony/process](https://github.com/symfony/process) is everything this project is, and was intended to be, but so much better, actively maintained and fully mature, so there is really no reason for this project to exist.  
+
+
 ## Install
 
 Via Composer
